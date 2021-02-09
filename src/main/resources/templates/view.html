@@ -3,6 +3,9 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
+
+<p th:unless="${job}">No jobs!</p>
+<th:block th:if="${job}">
 <h1 th:text="${'Job: ' + job.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
@@ -21,7 +24,7 @@
         </ul>
     </p>
 </div>
-
+</th:block>
 
 </body>
 </html>

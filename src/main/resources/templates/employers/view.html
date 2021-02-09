@@ -3,6 +3,8 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
+<h1 th:unless="${employer} and ${employer.name}">No jobs!</h1>
+<th:block th:if="${employer}">
 <h1 th:text="${'Employer: ' + employer.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
@@ -11,7 +13,7 @@
     <p th:text="${'Name: ' + employer.name}"></p>
     <p th:text="${'Location: ' + employer.location}"></p>
 </div>
-
+</th:block>
 
 </body>
 </html>

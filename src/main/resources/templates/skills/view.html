@@ -3,11 +3,14 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Skill: ' + skill.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
+<h1 th:unless="${skill}">No jobs!</h1>
+<th:block th:if="${skill}">
+<h1 th:text="${'Skill: ' + skill.name}">Default Title</h1>
+
+<div  class="job-listing">
     <p th:text="${'Name: ' + skill.name}"></p>
     <p th:text="${'Description: ' + skill.description}"></p>
     <p> Jobs:
@@ -18,3 +21,4 @@
         </ul>
     </p>
 </div>
+</th:block>
